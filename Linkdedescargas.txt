@@ -1,0 +1,2 @@
+R : https://cran.r-project.org/bin/windows/base/
+RStudio: https://posit.co/download/rstudio-desktop/

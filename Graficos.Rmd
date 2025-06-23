@@ -1,0 +1,95 @@
+---
+title: "Informe adicional"
+author: "Cristóbal Belmar Osorio y César Sandoval Mondaca"
+date: "2025-06-22"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+Mayor información de las variables analizadas.
+```{r  echo=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(readxl)
+library(scales)
+library(gridExtra)
+library(naniar)
+library(skimr)
+library(knitr)
+library(kableExtra)
+
+# 1. Cargar datos desde la hoja "epf"
+df <- read_excel("C:/Users/cesar/Downloads/Basefinal.xlsx", sheet = "epf")
+
+
+# Extraer la estructura del dataframe
+structure_info <- data.frame(
+  Columna = names(df),
+  Tipo = sapply(df, class),
+  stringsAsFactors = FALSE
+)
+
+kable(structure_info, booktabs = TRUE, caption = "Tipos de datos por columna") %>%
+  kable_styling(latex_options = c("striped", "hold_position"))
+
+
+```
+
+
+```{r results='markup', echo=FALSE}
+# 5. Ajustar nombres de columnas (opcional, si son difíciles de usar)
+colnames(df) <- c(
+  "macrozona", "folio", "estrato_muestreo", "cse", "npersonas",
+  "parentesco", "sexo", "edad", "ecivil", "edunivel", "ingreso_per_capita",
+  "años_edu", "ocupadas"
+)
+
+# 6. Limpiar valores no numéricos o faltantes en variables numéricas (ejemplo: reemplazar -13000 por NA)
+df$ingreso_per_capita[df$ingreso_per_capita < 0] <- NA
+```
+
+
+
+```{r results='markup', echo=FALSE}
+# Distribución por Sexo
+ggplot(df, aes(x = factor(sexo))) +
+  geom_bar(fill = "mediumseagreen") +
+  labs(title = "Distribución por Sexo", x = "Sexo", y = "Frecuencia") +
+  scale_x_discrete(labels = c("1" = "Masculino", "2" = "Femenino"))
+```
+El gráfico revela que la categoría Femenino presenta una mayor frecuencia absoluta, con aproximadamente 19,000 observaciones , mientras que la categoría Masculino alcanza las 16,000 observaciones . Esto implica una diferencia de alrededor de 3,000 observaciones en favor del grupo femenino.
+
+La base de datos analizada hay un ligero predominio del género femenino.
+
+```{r results='markup', echo=FALSE}
+#  Clasificación Socioeconómica (CSE)
+ggplot(df, aes(x = factor(cse))) +
+  geom_bar(fill = "salmon") +
+  labs(title = "Clasificación Socioeconómica", x = "CSE", y = "Frecuencia")
+```
+
+La categoría 2 presenta la mayor frecuencia, con aproximadamente 18,000 observaciones , lo que sugiere que la mayoría de los individuos en esta base de datos pertenecen al grupo socioeconómico intermedio. Por otro lado, la categoría 1 registra una frecuencia cercana a 10,000 casos , indicando una proporción menor pero significativa dentro del total. Finalmente, la categoría 3 , asociada presumiblemente al nivel socioeconómico más alto, tiene la menor cantidad de registros, con una frecuencia estimada de alrededor de 6,000 observaciones .
+
+Un patrón típico en variables socioeconómicas, donde el grupo intermedio tiende a ser más numeroso que los extremos. No obstante, la diferencia entre los niveles 1 y 3 sugiere cierta asimetría en la representación de los grupos más bajos y altos, lo cual podría deberse tanto a características reales de la población estudiada como a posibles sesgos en la recolección de los datos.
+
+
+
+```{r results='markup', echo=FALSE }
+
+table_sex_ecivil <- table(df$sexo, df$ecivil)
+```
+
+
+```{r results='markup', echo=FALSE}
+# Gráfico de barras apiladas
+barplot(table_sex_ecivil, beside = FALSE,
+        legend.text = c("Soltero", "Casado"),
+        col = c("lightblue", "lightgreen"),
+        main = "Estado Civil por Sexo")
+```
+Analizando los datos visuales, se observa que en el grupo Masculino (1) , la categoría más numerosa es Soltero , con una frecuencia aproximada de 5,000 observaciones , seguida por Casado , que alcanza un nivel similar pero ligeramente menor. Las categorías Viudo y Divorciado/Separado presentan frecuencias significativamente menores dentro de este grupo.
+
+En el caso del grupo Femenino (2) , también destaca la categoría Soltera como la más frecuente, aunque con una proporción algo menor que su contraparte masculina. Por otro lado, la categoría Casada parece tener una mayor presencia relativa en este grupo, lo cual podría indicar diferencias en patrones matrimoniales o etarios entre hombres y mujeres en la muestra.
+
