@@ -596,7 +596,7 @@ decisión:
 \FunctionTok{library}\NormalTok{(ggplot2)}
 
 \CommentTok{\# Lectura del archivo CSV que contiene los datos de personas de la encuesta EPF}
-\NormalTok{epf }\OtherTok{\textless{}{-}} \FunctionTok{read\_delim}\NormalTok{(}\StringTok{"C:/Users/cesar/OneDrive/Escritorio/TrabajodeBI/Dashboard/epf\_persona.csv"}\NormalTok{, }\AttributeTok{delim =} \StringTok{";"}\NormalTok{,}
+\NormalTok{epf }\OtherTok{\textless{}{-}} \FunctionTok{read\_delim}\NormalTok{(}\StringTok{"C:/Users/cesar/OneDrive/Escritorio/TrabajoFecundidadyHogares/Dashboard/epf\_persona.csv"}\NormalTok{, }\AttributeTok{delim =} \StringTok{";"}\NormalTok{,}
                   \AttributeTok{escape\_double =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{trim\_ws =} \ConstantTok{TRUE}\NormalTok{)}
 
 \CommentTok{\# Filtrado de jefes/as de hogar y selección de variables relevantes para e}
@@ -689,9 +689,9 @@ tener en consideración.
 \FunctionTok{library}\NormalTok{(kableExtra)  }
 
 \CommentTok{\# {-}{-}{-} CARGA DE DATOS {-}{-}{-}}
-\NormalTok{epf }\OtherTok{\textless{}{-}} \FunctionTok{read\_delim}\NormalTok{(}\StringTok{"C:/Users/cesar/OneDrive/Escritorio/TrabajodeBI/Dashboard/epf\_persona.csv"}\NormalTok{, }\AttributeTok{delim =} \StringTok{";"}\NormalTok{, }
+\NormalTok{epf }\OtherTok{\textless{}{-}} \FunctionTok{read\_delim}\NormalTok{(}\StringTok{"C:/Users/cesar/OneDrive/Escritorio/TrabajoFecundidadyHogares/Dashboard/epf\_persona.csv"}\NormalTok{, }\AttributeTok{delim =} \StringTok{";"}\NormalTok{, }
                   \AttributeTok{escape\_double =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{trim\_ws =} \ConstantTok{TRUE}\NormalTok{)}
-\NormalTok{df\_variable }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"C:/Users/cesar/OneDrive/Escritorio/TrabajodeBI/Dashboard/Basefinal.xlsx"}\NormalTok{,}
+\NormalTok{df\_variable }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"C:/Users/cesar/OneDrive/Escritorio/TrabajoFecundidadyHogares/Dashboard/Basefinal.xlsx"}\NormalTok{,}
                           \AttributeTok{sheet =} \StringTok{"epf"}\NormalTok{)}
 
 \CommentTok{\# Se filtran los datos para quedarse solo con los jefes/as de hogar }
@@ -886,6 +886,6 @@ esperados o generen dependencia estructural.
 
 \subsection{ANEXO}\label{anexo}
 
-\url{https://github.com/CesarSM04/Trabajo-de-Fecundidad}
+\url{https://github.com/CesarSM04/Fecundidad_hogares}
 
 \end{document}

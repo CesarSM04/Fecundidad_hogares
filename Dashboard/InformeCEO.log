@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.21)  23 JUN 2025 12:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.21)  23 JUN 2025 14:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -812,7 +812,7 @@ L3 programming layer <2025-04-14>
  ) 
 Here is how much of TeX's memory you used:
  15827 strings out of 469941
- 251617 string characters out of 5469430
+ 251687 string characters out of 5469430
  690120 words of memory out of 5000000
  42187 multiletter control sequences out of 15000+600000
  685035 words of font info for 156 fonts, out of 8000000 for 9000
@@ -827,7 +827,7 @@ C:/Users/cesar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><
 C:/Users/cesar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><
 C:/Users/cesar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><
 C:/Users/cesar/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtti10.pfb>
-Output written on InformeCEO.pdf (14 pages, 372402 bytes).
+Output written on InformeCEO.pdf (14 pages, 372599 bytes).
 PDF statistics:
  209 PDF objects out of 1000 (max. 8388607)
  27 named destinations out of 1000 (max. 500000)

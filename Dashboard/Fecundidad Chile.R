@@ -24,15 +24,15 @@ library(rpart.plot)
 library(naniar)
 # Carga de datos desde los archivos subidos
 datos <- list(
-  nacimientos = read_excel("C:/Users/cesar/OneDrive/Escritorio/TrabajodeBI/Dashboard/Basefinal.xlsx", sheet = "Nacimientos"),
-  fecundidad = read_excel("C:/Users/cesar/OneDrive/Escritorio/TrabajodeBI/Dashboard/Basefinal.xlsx", sheet = "Fecundidad"),
-  proyecciones = read_excel("C:/Users/cesar/OneDrive/Escritorio/TrabajodeBI/Dashboard/Basefinal.xlsx", sheet = "Indicadores", col_names = TRUE),
-  ingreso = read_excel("C:/Users/cesar/OneDrive/Escritorio/TrabajodeBI/Dashboard/Basefinal.xlsx", sheet = "Ingreso"),
-  epf_ingresos = read_excel("C:/Users/cesar/OneDrive/Escritorio/TrabajodeBI/Dashboard/Basefinal.xlsx", sheet = "Ingresosdisponibles"),
-  epf_poblacion = read_excel("C:/Users/cesar/OneDrive/Escritorio/TrabajodeBI/Dashboard/Basefinal.xlsx", sheet = "teripoblacion1")
+  nacimientos = read_excel("C:/Users/cesar/OneDrive/Escritorio/TrabajoFecundidadyHogares/Dashboard/Basefinal.xlsx", sheet = "Nacimientos"),
+  fecundidad = read_excel("C:/Users/cesar/OneDrive/Escritorio/TrabajoFecundidadyHogares/Dashboard/Basefinal.xlsx", sheet = "Fecundidad"),
+  proyecciones = read_excel("C:/Users/cesar/OneDrive/Escritorio/TrabajoFecundidadyHogares/Dashboard/Basefinal.xlsx", sheet = "Indicadores", col_names = TRUE),
+  ingreso = read_excel("C:/Users/cesar/OneDrive/Escritorio/TrabajoFecundidadyHogares/Dashboard/Basefinal.xlsx", sheet = "Ingreso"),
+  epf_ingresos = read_excel("C:/Users/cesar/OneDrive/Escritorio/TrabajoFecundidadyHogares/Dashboard/Basefinal.xlsx", sheet = "Ingresosdisponibles"),
+  epf_poblacion = read_excel("C:/Users/cesar/OneDrive/Escritorio/TrabajoFecundidadyHogares/Dashboard/Basefinal.xlsx", sheet = "teripoblacion1")
 )
 
-epf <- read_delim("C:/Users/cesar/OneDrive/Escritorio/TrabajodeBI/Dashboard/epf_persona.csv", delim = ";", escape_double = FALSE, trim_ws = TRUE)
+epf <- read_delim("C:/Users/cesar/OneDrive/Escritorio/TrabajoFecundidadyHogares/Dashboard/epf_persona.csv", delim = ";", escape_double = FALSE, trim_ws = TRUE)
 # Edicion y limpieza de epf
 
 hogar_base <- epf %>%
@@ -184,7 +184,7 @@ vif_values <- vif(aux_model)
 
 # Cargar shapefile de regiones (utilizar geojson simplificado desde GADM, si se tiene)
 # Aquí se asume que existe un archivo "regiones_chile.geojson" con nombre de columna "Region"
-regiones_chile <- st_read("C:/Users/cesar/OneDrive/Escritorio/TrabajodeBI/Dashboard/regiones.json", quiet = TRUE)
+regiones_chile <- st_read("C:/Users/cesar/OneDrive/Escritorio/TrabajoFecundidadyHogares/Dashboard/regiones.json", quiet = TRUE)
 
 # Lista de indicadores relevantes
 indicadores_relevantes <- c(
@@ -734,7 +734,7 @@ server <- function(input, output, session) {
       
       # Renderiza el archivo Rmd
       rmarkdown::render(
-        input = "C:/Users/cesar/OneDrive/Escritorio/TrabajodeBI/Dashboard/reporte.Rmd",         # Ruta al Rmd
+        input = "C:/Users/cesar/OneDrive/Escritorio/TrabajoFecundidadyHogares/Dashboard/reporte.Rmd",         # Ruta al Rmd
         output_format = "html_document", # Formato de salida
         output_file = output_ht_temp,    # Ruta del archivo final
         params = params_list,          # Lista de parámetros
@@ -792,7 +792,7 @@ server <- function(input, output, session) {
       
       # Renderiza el Rmd al archivo temporal
       rmarkdown::render(
-        input = "C:/Users/cesar/OneDrive/Escritorio/TrabajodeBI/Dashboard/reporte.Rmd",
+        input = "C:/Users/cesar/OneDrive/Escritorio/TrabajoFecundidadyHogares/Dashboard/reporte.Rmd",
         output_format = "pdf_document",
         output_file = output_pdf_temp,
         params = params_list,
@@ -823,7 +823,7 @@ server <- function(input, output, session) {
       output_rep_temp <- file.path("reportes", paste0("Informe_", Sys.Date(), ".pdf"))
       # Ruta al Rmd estático
       rmarkdown::render(
-        input = "C:/Users/cesar/OneDrive/Escritorio/TrabajodeBI/Dashboard/informeCEO.Rmd",
+        input = "C:/Users/cesar/OneDrive/Escritorio/TrabajoFecundidadyHogares/Dashboard/informeCEO.Rmd",
         output_format = "pdf_document",
         output_file = output_rep_temp,
         envir = new.env(parent = globalenv())

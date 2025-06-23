@@ -100,7 +100,7 @@ La selección de este conjunto de datos se basó en su relevancia para comprende
 
 ```{r cargar-datos}
 # Cambia la ruta al archivo local si es necesario
-df_variable <- read_excel("C:/Users/cesar/OneDrive/Escritorio/TrabajodeBI/Dashboard/Basefinal.xlsx", sheet = "epf")
+df_variable <- read_excel("C:/Users/cesar/OneDrive/Escritorio/TrabajoFecundidadyHogares/Dashboard/Basefinal.xlsx", sheet = "epf")
 ```
 
 ```{r}
@@ -182,7 +182,7 @@ grafico_facet <- ggplot(df_variable, aes(x = edad)) +
   labs(title = "Distribución de edad por sexo y ocupación", x = "Edad", y = "Frecuencia")
 
 # Gráfico 2: Barras de nacimientos por grupo etario y año
-df_nacimientos <- read_excel("C:/Users/cesar/OneDrive/Escritorio/TrabajodeBI/Dashboard/Basefinal.xlsx", sheet = "Nacimientos")
+df_nacimientos <- read_excel("C:/Users/cesar/OneDrive/Escritorio/TrabajoFecundidadyHogares/Dashboard/Basefinal.xlsx", sheet = "Nacimientos")
 df_long <- pivot_longer(df_nacimientos, -Año, names_to = "Grupo_Etario", values_to = "Nacimientos")
 
 # Crear una nueva columna con rangos de edad más claros
@@ -271,7 +271,7 @@ library(caret)
 library(car)
 library(ggplot2)
 # Leer datos
-epf <- read_delim("C:/Users/cesar/OneDrive/Escritorio/TrabajodeBI/Dashboard/epf_persona.csv", delim = ";", 
+epf <- read_delim("C:/Users/cesar/OneDrive/Escritorio/TrabajoFecundidadyHogares/Dashboard/epf_persona.csv", delim = ";", 
                   escape_double = FALSE, trim_ws = TRUE)
 
 hogar_base <- epf %>%
@@ -364,9 +364,9 @@ library(knitr)
 library(kableExtra)
 
 # --- CARGA DE DATOS ---
-epf <- read_delim("C:/Users/cesar/OneDrive/Escritorio/TrabajodeBI/Dashboard/epf_persona.csv", delim = ";", 
+epf <- read_delim("C:/Users/cesar/OneDrive/Escritorio/TrabajoFecundidadyHogares/Dashboard/epf_persona.csv", delim = ";", 
                   escape_double = FALSE, trim_ws = TRUE)
-df_variable <- read_excel("C:/Users/cesar/OneDrive/Escritorio/TrabajodeBI/Dashboard/Basefinal.xlsx", 
+df_variable <- read_excel("C:/Users/cesar/OneDrive/Escritorio/TrabajoFecundidadyHogares/Dashboard/Basefinal.xlsx", 
                           sheet = "epf")
 
 hogar_base <- epf %>%
@@ -515,7 +515,7 @@ library(car)
 library(ggplot2)
 
 # Lectura del archivo CSV que contiene los datos de personas de la encuesta EPF
-epf <- read_delim("C:/Users/cesar/OneDrive/Escritorio/TrabajodeBI/Dashboard/epf_persona.csv", delim = ";",
+epf <- read_delim("C:/Users/cesar/OneDrive/Escritorio/TrabajoFecundidadyHogares/Dashboard/epf_persona.csv", delim = ";",
                   escape_double = FALSE, trim_ws = TRUE)
 
 # Filtrado de jefes/as de hogar y selección de variables relevantes para e
@@ -606,9 +606,9 @@ library(knitr)
 library(kableExtra)  
 
 # --- CARGA DE DATOS ---
-epf <- read_delim("C:/Users/cesar/OneDrive/Escritorio/TrabajodeBI/Dashboard/epf_persona.csv", delim = ";", 
+epf <- read_delim("C:/Users/cesar/OneDrive/Escritorio/TrabajoFecundidadyHogares/Dashboard/epf_persona.csv", delim = ";", 
                   escape_double = FALSE, trim_ws = TRUE)
-df_variable <- read_excel("C:/Users/cesar/OneDrive/Escritorio/TrabajodeBI/Dashboard/Basefinal.xlsx",
+df_variable <- read_excel("C:/Users/cesar/OneDrive/Escritorio/TrabajoFecundidadyHogares/Dashboard/Basefinal.xlsx",
                           sheet = "epf")
 
 # Se filtran los datos para quedarse solo con los jefes/as de hogar 
@@ -750,5 +750,5 @@ Las recomendaciones propuestas, como priorizar programas de apoyo en hogares con
 
 ## ANEXO
 
-https://github.com/CesarSM04/Trabajo-de-Fecundidad
+https://github.com/CesarSM04/Fecundidad_hogares
 
